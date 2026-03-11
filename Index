@@ -1,8 +1,0 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>HB3D</title>
-<style>
-body { margin:0; padding:40px; background:#f0f0f0; font-family:Arial; }
-.container { max-width:600px; margin:auto; background:white; padding:40px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.1); }
-.header { background:

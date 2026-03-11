@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HB3D</title>
+<style>
+body { margin:0; padding:40px; background:#f0f0f0; font-family:Arial; }
+.container { max-width:600px; margin:auto; background:white; padding:40px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.1); }
+.header { background:linear-gradient(135deg,#28a745,#20c997); color:white; padding:30px; text-align:center; border-radius:15px; margin-bottom:30px; }
+.prix { font-size:48px; font-weight:bold; color:#28a745; text-align:center; margin:30px 0; }
+.btn { background:#ff6b35; color:white; border:none; padding:20px 40px; font-size:24px; border-radius:15px; cursor:pointer; width:100%; }
+.upload { border:3px dashed #28a745; padding:40px; text-align:center; border-radius:15px; background:#f8fff8; margin:20px 0; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🖨️ HB3D Calculateur 3D</h1>
+    <p>Impression 3D Lille - 55.59€ TTC</p>
+  </div>
+  
+  <div class="upload" onclick="document.getElementById('file').click()">
+    📁 Uploadez STL/OBJ
+    <input type="file" id="file" style="display:none;" accept=".stl">
+  </div>
+  
+  <div class="prix">📊 125 cm³ - 85g</div>
+  
+  <button class="btn" onclick="pay()">💳 Payer 55.59€</button>
+</div>
+
+<script>
+function pay() { alert('🚀 Stripe 55.59€ !'); }
+</script>
+</body>
+</html>
