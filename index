@@ -1,112 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HB3D Calculateur 3D</title>
+<title>HB3D Calculateur</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 body { 
-  font-family:'Segoe UI',Arial,sans-serif; 
-  background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-  min-height:100vh; 
+  font-family:Arial,sans-serif; 
+  background:#f8f8f8; 
   padding:20px; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  min-height:100vh;
 }
 .container { 
-  max-width:500px; 
-  margin:0 auto; 
+  width:100%; max-width:450px; 
   background:white; 
-  border-radius:25px; 
-  box-shadow:0 25px 50px rgba(0,0,0,0.2); 
+  border-radius:15px; 
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
   overflow:hidden;
 }
 .header { 
-  background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%); 
-  padding:30px 25px; 
-  text-align:center; 
+  background:#D32F2F; /* Rouge HB3D */
   color:white; 
-}
-.logo { font-size:28px; font-weight:700; margin-bottom:5px; }
-.tagline { font-size:14px; opacity:0.9; }
-.upload-zone { 
-  border:3px dashed #4facfe; 
-  border-radius:20px; 
-  padding:40px 20px; 
-  text-align:center; 
-  margin:30px 25px; 
-  background:rgba(79,172,254,0.1);
-  transition:all 0.3s ease;
-  cursor:pointer;
-}
-.upload-zone:hover { background:rgba(79,172,254,0.2); }
-.upload-icon { 
-  font-size:50px; 
-  display:block; 
-  margin-bottom:15px; 
-}
-.upload-text { 
-  color:#4facfe; 
-  font-size:16px; 
-  font-weight:500; 
-  margin-bottom:5px;
-}
-.results { 
-  background:#f8f9ff; 
   padding:25px; 
-  border-top:1px solid #e1e5ff; 
+  text-align:center;
 }
-.volume { 
-  display:flex; 
-  align-items:center; 
-  gap:15px; 
+.header h1 { 
+  font-size:24px; 
+  margin-bottom:5px; 
+}
+.header .price { 
+  font-size:20px; 
+  font-weight:bold; 
+}
+.upload-zone { 
+  padding:50px 30px; 
+  text-align:center; 
+  border-bottom:1px solid #eee;
+  color:#333;
+}
+.upload-icon { 
+  font-size:60px; 
+  color:#D32F2F; 
   margin-bottom:20px; 
 }
-.volume-icon { width:50px; height:50px; background:#4facfe; border-radius:12px; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; }
-.volume-data { flex:1; }
-.volume-label { font-size:12px; color:#666; text-transform:uppercase; letter-spacing:1px; }
-.volume-value { font-size:28px; font-weight:700; color:#2c3e50; margin-top:2px; }
-.pay-button { 
+.upload-text { 
+  font-size:18px; 
+  color:#333; 
+  margin-bottom:10px;
+}
+.upload-types { 
+  color:#666; 
+  font-size:14px;
+}
+.results { 
+  padding:30px; 
+  display:none;
+}
+.stats { 
+  display:flex; 
+  justify-content:space-around; 
+  margin-bottom:30px; 
+  text-align:center;
+}
+.stat { 
+  background:#f8f8f8; 
+  padding:20px; 
+  border-radius:10px; 
+  flex:1; 
+  margin:0 10px;
+}
+.stat-value { 
+  font-size:22px; 
+  font-weight:bold; 
+  color:#333;
+}
+.stat-label { 
+  font-size:12px; 
+  color:#666; 
+  text-transform:uppercase;
+}
+.pay-btn { 
   width:100%; 
-  background:linear-gradient(135deg,#ff6b6b,#ee5a24); 
+  background:#D32F2F; /* Rouge HB3D */
   color:white; 
   border:none; 
-  padding:18px; 
-  border-radius:15px; 
+  padding:20px; 
+  border-radius:10px; 
   font-size:18px; 
-  font-weight:600; 
-  cursor:pointer; 
-  transition:all 0.3s ease; 
+  font-weight:bold; 
+  cursor:pointer;
 }
-.pay-button:hover { transform:translateY(-2px); box-shadow:0 15px 30px rgba(255,107,107,0.4); }
-@media (max-width:480px) { 
-  body { padding:10px; } 
-  .header { padding:25px 20px; }
-  .logo { font-size:24px; }
-}
+.pay-btn:hover { background:#B71C1C; }
+input[type=file] { display:none; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="header">
-    <div class="logo">🖨️ HB3D Calculateur 3D</div>
-    <div class="tagline">Impression 3D Lille - 55,59€ TTC</div>
+    <h1>🖨️ HB3D Calculateur 3D</h1>
+    <div class="price">Impression 3D Lille - 55,59€ TTC</div>
   </div>
   
   <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
     <div class="upload-icon">📁</div>
     <div class="upload-text">Upload STL/OBJ</div>
-    <input type="file" id="fileInput" accept=".stl,.obj" style="display:none;">
+    <div class="upload-types">Formats supportés</div>
+    <input type="file" id="fileInput" accept=".stl,.obj">
   </div>
   
-  <div class="results" id="results" style="display:none;">
-    <div class="volume">
-      <div class="volume-icon">📊</div>
-      <div class="volume-data">
-        <div class="volume-label">Volume & Poids</div>
-        <div class="volume-value" id="volumeValue">125 cm³ - 85g</div>
+  <div class="results" id="results">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-value">125 cm³</div>
+        <div class="stat-label">Volume</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">85g</div>
+        <div class="stat-label">Poids</div>
       </div>
     </div>
-    <button class="pay-button" onclick="pay()">💳 Payer 55,59€</button>
+    <button class="pay-btn" onclick="pay()">💳 Payer 55,59€</button>
   </div>
 </div>
 
@@ -114,13 +131,17 @@ body {
 document.getElementById('fileInput').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (file) {
-    document.querySelector('.upload-zone').innerHTML = '<div style="color:#666;">📁 ' + file.name + '</div>';
+    document.querySelector('.upload-zone').innerHTML = `
+      <div style="font-size:16px;color:#D32F2F;margin-top:30px;">
+        ✅ ${file.name} chargé
+      </div>
+    `;
     document.getElementById('results').style.display = 'block';
   }
 });
 
 function pay() {
-  alert('🚀 Redirection paiement Stripe → 55,59€ HB3D !');
+  alert('🚀 Redirection paiement sécurisé 55,59€ TTC');
 }
 </script>
 </body>
