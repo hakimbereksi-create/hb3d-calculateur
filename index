@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HB3D Calculateur Impression 3D</title>
+<!-- HB3D Calculateur v1.1 - Force redeploy -->
   <style>
     /* CSS HB3D = ta maquette vert/orange */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
-    <!-- comment -->
+    
     .hb3d-container {
       max-width: 1200px; margin: 0 auto; background: white; 
       border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
